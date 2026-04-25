@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Đăng ký"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="Họ và tên"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edittext_outline"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="Trịnh Lê Phúc A"
+            android:paddingHorizontal="15dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Email"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edittext_outline"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="abhixyzxyz@gmail.com"
+            android:paddingHorizontal="15dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Nhập mật khẩu"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edittext_outline"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#FFFFFF">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="***********"
+            android:inputType="textPassword"
+            android:paddingHorizontal="15dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Nhập lại mật khẩu"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edittext_outline"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#FFFFFF">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="***********"
+            android:inputType="textPassword"
+            android:paddingHorizontal="15dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Đăng ký bằng Apple"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_apple"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconSize="26dp"
+        app:iconTint="@null"
+        app:strokeColor="#E58E66"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Đăng nhập bằng Google"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/ic_google"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconSize="23dp"
+        app:iconTint="@null"
+        app:strokeColor="#E58E66"
+        app:strokeWidth="1dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đã có tài khoản? "
+            android:textColor="#FFFFFF" />
+
+
+        <TextView
+            android:id="@+id/btnToLoginFromRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="8dp"
+            android:text=" Đăng nhập"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/red"
+        android:text="Đăng Ký"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
+        app:strokeWidth="1dp" />
+</LinearLayout>

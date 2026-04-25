@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Quay lại"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_back"
+        app:tint="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="4dp"
+        android:text="Xác minh\nemail của bạn"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="Nhập mã 6 chữ số được gửi đến địa chỉ email của bạn."
+        android:textColor="#BBBBBB"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/etOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_otp_input"
+        android:gravity="center"
+        android:hint="* * * * * *"
+        android:inputType="number"
+        android:letterSpacing="0.2"
+        android:maxLength="6"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp"
+        android:textColor="#000000"
+        android:textColorHint="#999999"
+        android:textSize="24sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email không đúng? "
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvEditEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Chỉnh sửa"
+            android:textColor="#FF6D00"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnResend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:insetTop="6dp"
+            android:insetBottom="6dp"
+            android:minHeight="48dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="Gửi lại (10S)"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            app:cornerRadius="10dp"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+
+</LinearLayout>

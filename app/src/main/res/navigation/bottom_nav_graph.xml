@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.musicapp.presentation.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_nav_home_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.musicapp.presentation.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/nav_ticket"
+        android:name="LibraryFragment"
+        android:label="LibraryFragment" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="com.example.musicapp.presentation.home.detail.EventDetailFragment"
+        android:label="EventDetailFragment" >
+        <argument
+            android:name="eventData"
+            app:argType="com.example.musicapp.presentation.model.HomeItem$Event"/>
+    </fragment>
+</navigation>
