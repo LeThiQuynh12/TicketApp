@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.musicapp.presentation.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_nav_home_to_eventDetailFragment"
             app:destination="@id/eventDetailFragment" />
@@ -27,9 +27,57 @@
     <fragment
         android:id="@+id/eventDetailFragment"
         android:name="com.example.musicapp.presentation.home.detail.EventDetailFragment"
-        android:label="EventDetailFragment" >
+        android:label="EventDetailFragment">
         <argument
             android:name="eventData"
-            app:argType="com.example.musicapp.presentation.model.HomeItem$Event"/>
+            app:argType="com.example.musicapp.presentation.model.HomeItem$Event" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_ticketSelectionFragment"
+            app:destination="@id/ticketSelectionFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.musicapp.presentation.home.checkout.CheckoutFragment"
+        android:label="CheckoutFragment">
+        <argument
+            android:name="selectedTickets"
+            app:argType="com.example.musicapp.presentation.model.Ticket[]" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ticketSelectionFragment"
+        android:name="com.example.musicapp.presentation.home.ticket.TicketSelectionFragment"
+        android:label="TicketSelectionFragment">
+        <action
+            android:id="@+id/action_ticketSelectionFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.musicapp.presentation.payment.PaymentFragment">
+        <argument
+            android:name="totalAmount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_paymentFragment_to_vietQrPaymentFragment"
+            app:destination="@id/vietQrPaymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vietQrPaymentFragment"
+        android:name="com.example.musicapp.presentation.home.payment.VietQrPaymentFragment"
+        android:label="VietQrPaymentFragment">
+        <argument
+            android:name="totalAmount"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+
 </navigation>

@@ -16,10 +16,23 @@ sealed class HomeItem : Parcelable {
         val price: String,
         val date: String,
         val description: String,
-        val location: String,
+        val location: Location,
         val gallery: List<String>,
         val seatMapUrl: String,
         val organizerName: String,
         val contactPhone: String
     ) : HomeItem()
+}
+
+@Parcelize
+data class Location(
+    val name: String,
+    val province: String,
+    val district: String,
+    val ward: String,
+    val addressDetail: String
+) : Parcelable
+
+fun Location.toFormattedString(): String {
+    return "$addressDetail, ${ward}, ${district}, ${province}"
 }

@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.musicapp.R
+import com.example.musicapp.data.model.Location
 import com.example.musicapp.databinding.FragmentEventDetailBinding
+import timber.log.Timber
 
 
 class EventDetailFragment : Fragment() {
@@ -28,6 +32,19 @@ class EventDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bindEventDetail()
+
+        binding.btnBack.setOnClickListener {
+            Timber.tag("abcd").d("123 abcd")
+            findNavController().popBackStack(R.id.nav_home, false)
+        }
+
+        binding.btnBuy.setOnClickListener {
+            findNavController().navigate(R.id.ticketSelectionFragment)
+        }
+    }
+
+    private fun bindEventDetail() {
         val event = args.eventData
 
         binding.tvNameEvent.text = event.name
@@ -42,5 +59,11 @@ class EventDetailFragment : Fragment() {
                 Glide.with(this).load(event.gallery[1]).into(binding.imgGallery2)
             }
         }
+
+        binding.tvLocationName.text = event.location.name
+
+        binding.tvFullAddress.text =
+            " ${event.location.addressDetail} ${event.location.ward} ${event.location.district} ${event.location.province}"
+
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.musicapp.R
@@ -17,20 +18,48 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.apply {
             btnToRegister.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
+
             btnLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_mainBottomTabFragment)
+                val email = etEmail.text.toString().trim()
+                val password = etPassword.text.toString().trim()
+
+                if (email == "lequynh4431r@gmail.com" && password == "11101978") {
+                    Toast.makeText(requireContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT)
+                        .show()
+                    findNavController().navigate(R.id.action_loginFragment_to_mainBottomTabFragment)
+                } else {
+                    if (email.isEmpty() || password.isEmpty()) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Vui lòng nhập đầy đủ thông tin",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Email hoặc mật khẩu không chính xác",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

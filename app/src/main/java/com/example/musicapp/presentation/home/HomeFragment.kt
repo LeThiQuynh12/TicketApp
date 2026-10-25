@@ -14,12 +14,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.musicapp.R
 import com.example.musicapp.data.model.City
 import com.example.musicapp.data.model.Event
+import com.example.musicapp.data.model.Location
 import com.example.musicapp.databinding.FragmentHomeBinding
 import com.example.musicapp.presentation.home.banner.BannerAdapter
 import com.example.musicapp.presentation.home.banner.EventSpeacialAdapter
 import com.example.musicapp.presentation.home.city.CityAdapter
 import com.example.musicapp.presentation.home.event.EventAdapter
 import com.example.musicapp.presentation.model.HomeItem
+import com.example.musicapp.presentation.model.toFormattedString
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -109,7 +111,17 @@ class HomeFragment : Fragment() {
         val sampleImages = listOf(
             "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F11%2Fd6%2Fe8%2Ff6893bb9663c34bf576326976023a43d.png&w=640&q=75",
             "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F18%2F88%2F18%2Fe332c989034090fa1c08b6f7d77aca85.jpg&w=640&q=75",
-            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F60%2F1c%2F1b%2F76f3f9991f16bf7f46a613fdce6bf568.jpeg&w=640&q=75"
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F60%2F1c%2F1b%2F76f3f9991f16bf7f46a613fdce6bf568.jpeg&w=640&q=75",
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F8c%2F41%2Ff0%2F8b5bb5b96ff2c969c5b0b454d1304473.jpg&w=640&q=75",
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F360%2F479%2Fts%2Fds%2F60%2Fa3%2F34%2F3700a1d51db32056f57ef089fe8751c4.jpg&w=640&q=75"
+
+        )
+
+        val sampleTrending = listOf(
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F608%2F332%2Fts%2Fds%2F2d%2F4a%2Fae%2F3f932822f53decae05767457e02c7bf5.jpeg&w=1920&q=75",
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F608%2F332%2Fts%2Fds%2F71%2F54%2F2d%2F8e539b88433cc6be0c072f53b94d84e0.png&w=1920&q=75",
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F608%2F332%2Fts%2Fds%2Fd8%2F08%2F79%2F489f5f3a0f9109b574742e75e2753040.jpeg&w=1920&q=75",
+            "https://ticketbox.vn/_next/image?url=https%3A%2F%2Fimages.tkbcdn.com%2F2%2F608%2F332%2Fts%2Fds%2Fdf%2F73%2F58%2F48093f2ebde108ffb8ae51fe702b1fcb.jpg&w=1920&q=75",
         )
 
         binding.rvSpecialEvents.apply {
@@ -117,66 +129,27 @@ class HomeFragment : Fragment() {
         }
 
         binding.rvTrendingEvents.apply {
-            adapter = EventSpeacialAdapter(sampleImages, isTrending = true)
+            adapter = EventSpeacialAdapter(sampleTrending, isTrending = true)
         }
     }
 
     private fun setupRecyclerViewEvent() {
-        val sections = listOf(
-            "Âm nhạc" to listOf(
-                Event(
-                    id = "1",
-                    imageUrl = "https://images.tkbcdn.com/2/608/332/ts/ds/04/ae/18/9ee650dff5237d8bcfdb2f92aa049e1c.jpg",
-                    name = "Đêm nhạc Minh Tuyết - Hoàng Hải",
-                    price = "Từ 500.000 đ",
-                    date = "28 Tháng 04, 2026",
-                    description = "Mô tả chi tiết sự kiện âm nhạc...",
-                    location = "Hà Nội",
-                    gallery = listOf("url1", "url2"),
-                    seatMapUrl = "https://example.com/map1.jpg",
-                    organizerName = "BTC Music",
-                    contactPhone = "0987654321"
-                ),
-                Event(
-                    id = "2",
-                    imageUrl = "https://images.tkbcdn.com/2/608/332/ts/ds/80/14/b7/0d2ddc410e4735ae4ea11f488af05655.jpeg",
-                    name = "EXO PLANET #6",
-                    price = "Từ 3.000.000 đ",
-                    date = "25 Tháng 04, 2026",
-                    description = "Mô tả EXO...",
-                    location = "Tp. Hồ Chí Minh",
-                    gallery = listOf("url1", "url2"),
-                    seatMapUrl = "https://example.com/map2.jpg",
-                    organizerName = "BTC K-Pop",
-                    contactPhone = "0987654321"
-                )
-            ),
-            "Văn hóa" to listOf(
-                Event(
-                    id = "3",
-                    imageUrl = "https://images.tkbcdn.com/2/608/332/ts/ds/c1/81/68/096127bb1d5e99a116c1936613533f1d.jpg",
-                    name = "Concert Về Về Thanh Xuân",
-                    price = "Từ 1.000.000 đ",
-                    date = "25 Tháng 04, 2026",
-                    description = "Mô tả văn hóa...",
-                    location = "Đà Lạt",
-                    gallery = listOf("url1"),
-                    seatMapUrl = "https://example.com/map3.jpg",
-                    organizerName = "BTC Văn Hóa",
-                    contactPhone = "0987654321"
-                )
-            )
-        )
+        val sections = EventMockData.getMockSections()
 
-        // 2. Chuyển đổi sang flatList để đổ vào RecyclerView
         val flatList = mutableListOf<HomeItem>()
 
         sections.forEach { (categoryName, events) ->
-            // Thêm Header
             flatList.add(HomeItem.Header(id = categoryName, title = categoryName))
 
-            // Thêm các Event
             events.forEach { event ->
+                val presentationLocation = com.example.musicapp.presentation.model.Location(
+                    name = event.location.name,
+                    province = event.location.province,
+                    district = event.location.district,
+                    ward = event.location.ward,
+                    addressDetail = event.location.addressDetail
+                )
+
                 flatList.add(
                     HomeItem.Event(
                         id = event.id,
@@ -186,7 +159,7 @@ class HomeFragment : Fragment() {
                         price = event.price,
                         date = event.date,
                         description = event.description,
-                        location = event.location,
+                        location = presentationLocation,
                         gallery = event.gallery,
                         seatMapUrl = event.seatMapUrl,
                         organizerName = event.organizerName,
@@ -196,7 +169,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-        // 3. Setup Adapter và RecyclerView
         val adapter = EventAdapter { eventItem ->
             val action = HomeFragmentDirections.actionNavHomeToEventDetailFragment(eventItem)
             findNavController().navigate(action)
