@@ -18,12 +18,13 @@
         android:label="SearchFragment" />
     <fragment
         android:id="@+id/nav_ticket"
-        android:name="LibraryFragment"
+        android:name="com.example.musicapp.presentation.library.LibraryFragment"
         android:label="LibraryFragment" />
     <fragment
         android:id="@+id/nav_profile"
-        android:name="ProfileFragment"
+        android:name="com.example.musicapp.presentation.profile.ProfileFragment"
         android:label="ProfileFragment" />
+
     <fragment
         android:id="@+id/eventDetailFragment"
         android:name="com.example.musicapp.presentation.home.detail.EventDetailFragment"
@@ -71,7 +72,7 @@
 
     <fragment
         android:id="@+id/vietQrPaymentFragment"
-        android:name="com.example.musicapp.presentation.home.payment.VietQrPaymentFragment"
+        android:name="com.example.musicapp.presentation.payment.VietQrPaymentFragment"
         android:label="VietQrPaymentFragment">
         <argument
             android:name="totalAmount"

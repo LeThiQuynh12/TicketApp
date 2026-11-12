@@ -11,10 +11,12 @@
     <string name="repeat">repeat</string>
     <string name="share">share</string>
     <string name="list">list</string>
-    <string name="home">Home</string>
-    <string name="search">Search</string>
-    <string name="ticket">Ticket</string>
-    <string name="profile">Profile</string>
+    <string name="home">Trang chủ</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="ticket">Vé của tôi</string>
+    <string name="notifications">Thông báo</string>
+
+    <string name="profile">Cài đặt</string>
     <string name="discover_weekly">Discover Weekly</string>
     <string name="your_weekly_mixtape_of_fresh_music_enjoy">Your weekly mixtape of fresh music. Enjoy ne...</string>
     <string name="music">Music</string>

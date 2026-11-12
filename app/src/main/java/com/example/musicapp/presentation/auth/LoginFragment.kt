@@ -32,28 +32,8 @@ class LoginFragment : Fragment() {
             }
 
             btnLogin.setOnClickListener {
-                val email = etEmail.text.toString().trim()
-                val password = etPassword.text.toString().trim()
+                findNavController().navigate(R.id.action_loginFragment_to_mainBottomTabFragment)
 
-                if (email == "lequynh4431r@gmail.com" && password == "11101978") {
-                    Toast.makeText(requireContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT)
-                        .show()
-                    findNavController().navigate(R.id.action_loginFragment_to_mainBottomTabFragment)
-                } else {
-                    if (email.isEmpty() || password.isEmpty()) {
-                        Toast.makeText(
-                            requireContext(),
-                            "Vui lòng nhập đầy đủ thông tin",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Email hoặc mật khẩu không chính xác",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
             }
         }
     }

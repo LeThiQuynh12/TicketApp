@@ -1,4 +1,4 @@
-package com.example.musicapp.presentation.home.payment
+package com.example.musicapp.presentation.payment
 
 import android.app.AlertDialog
 import android.content.ClipData

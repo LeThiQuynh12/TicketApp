@@ -28,6 +28,9 @@ class RegisterFragment : Fragment() {
             btnRegister.setOnClickListener {
                 findNavController().navigate(R.id.action_registerFragment_to_verifyEmail)
             }
+            btnToLoginFromRegister.setOnClickListener {
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            }
         }
     }
 }

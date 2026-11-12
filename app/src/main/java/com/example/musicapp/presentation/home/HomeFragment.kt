@@ -13,15 +13,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.musicapp.R
 import com.example.musicapp.data.model.City
-import com.example.musicapp.data.model.Event
-import com.example.musicapp.data.model.Location
 import com.example.musicapp.databinding.FragmentHomeBinding
 import com.example.musicapp.presentation.home.banner.BannerAdapter
 import com.example.musicapp.presentation.home.banner.EventSpeacialAdapter
 import com.example.musicapp.presentation.home.city.CityAdapter
 import com.example.musicapp.presentation.home.event.EventAdapter
 import com.example.musicapp.presentation.model.HomeItem
-import com.example.musicapp.presentation.model.toFormattedString
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
