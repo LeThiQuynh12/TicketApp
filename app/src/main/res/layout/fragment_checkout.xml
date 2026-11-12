@@ -3,62 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#101214">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#27AE60"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#151A18"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:navigationIconTint="#FFFFFF"
+        app:title="Thông tin đặt vé"
+        app:titleTextAppearance="@style/ToolbarTitleStyle"
+        app:titleTextColor="#FFFFFF" />
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="58dp"
-            android:layout_height="58dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_back"
-            app:tint="#FFFFFF" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Bảng câu hỏi"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
-
+    <!-- Countdown -->
     <LinearLayout
         android:id="@+id/bannerTimer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E74C3C"
+        android:layout_height="48dp"
+        android:background="#24201B"
         android:gravity="center"
-        android:padding="8dp"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hoàn tất đặt vé trong  "
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:text="Vui lòng hoàn tất đặt vé trong"
+            android:textColor="#D5D5D5"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tvTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_timer"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="5dp"
             android:text="14 : 56"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:textColor="#FFB74D"
+            android:textSize="15sp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
+    <!-- Main content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="12dp"
         app:layout_constraintBottom_toTopOf="@id/bottomBar"
         app:layout_constraintTop_toBottomOf="@id/bannerTimer">
 
@@ -66,103 +64,182 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="18dp">
 
+            <!-- Event information -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đêm nhạc Minh Tuyết - Hoàng Hải"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="12dp"
-                android:background="#444444" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_date"
-                    app:tint="#FFFFFF" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="20:00 - 22:00, 18 Tháng 04, 2026"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/ic_location"
-                    app:tint="#FFFFFF" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Nhà Hát Ca Múa Nhạc Thăng Long"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="BẢNG CÂU HỎI"
-                android:textColor="#27AE60"
-                android:textSize="20sp"
+                android:letterSpacing="0.08"
+                android:text="SỰ KIỆN CỦA BẠN"
+                android:textColor="#00D68F"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="#2C2C2E"
-                app:cardCornerRadius="8dp">
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="#1B2420"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tôi đồng ý Ticketbox &amp; BTC sử dụng thông tin đặt vé nhằm mục đích vận hành sự kiện *"
+                        android:text="Đêm nhạc Minh Tuyết - Hoàng Hải"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="14dp"
+                        android:background="#344139" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_date"
+                            app:tint="#00D68F" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="20:00 - 22:00, 18 Tháng 04, 2026"
+                            android:textColor="#D0D8D3"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_location"
+                            app:tint="#00D68F" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="Nhà Hát Ca Múa Nhạc Thăng Long"
+                            android:textColor="#D0D8D3"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="22dp"
+                    android:background="#00D68F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Bảng câu hỏi"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Vui lòng xác nhận thông tin bên dưới"
+                android:textColor="#929B95"
+                android:textSize="13sp" />
+
+            <!-- Consent card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="#1B2420"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xác nhận sử dụng thông tin"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Tôi đồng ý Ticketbox và BTC sử dụng thông tin đặt vé nhằm mục đích vận hành sự kiện *"
+                        android:textColor="#B8C2BC"
+                        android:textSize="13sp" />
+
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Có"
+                        android:buttonTint="#00D68F"
+                        android:paddingEnd="8dp"
+                        android:text="Tôi đồng ý"
                         android:textColor="#FFFFFF"
-                        android:buttonTint="#FFFFFF"/>
+                        android:textSize="14sp" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Ticket summary -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="8dp">
+                app:cardBackgroundColor="#1B2420"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,121 +249,154 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Thông tin đặt vé"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:text="Thông tin vé đã chọn"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
                         <TextView
+                            android:id="@+id/tvChooseAgain"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:text="Chọn lại vé"
-                            android:textColor="#3498DB" />
+                            android:textColor="#00D68F"
+                            android:textSize="13sp" />
+
                     </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:background="#344139" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="14dp"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Loại vé"
-                            android:textStyle="bold"
-                            android:textColor="#000000" />
+                            android:text="LOẠI VÉ"
+                            android:textColor="#89958E"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Số lượng"
-                            android:textStyle="bold"
-                            android:textColor="#000000" />
+                            android:text="SỐ LƯỢNG"
+                            android:textColor="#89958E"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp">
+                        android:layout_marginTop="14dp">
+
                         <TextView
                             android:id="@+id/ticketName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="A Lie - Lời Nói Dối"
-                            android:textColor="#000000" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/ticketName"
+                            android:layout_marginTop="5dp"
                             android:text="700.000 đ"
-                            android:textColor="#888888" />
+                            android:textColor="#929B95"
+                            android:textSize="13sp" />
+
                         <TextView
                             android:id="@+id/qty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:text="01"
-                            android:textColor="#000000" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/qty"
-                            android:layout_alignParentEnd="true"
-                            android:text="700.000 đ"
-                            android:textColor="#888888" />
+                            android:textColor="#00D68F"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
                     </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#344139" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Tạm tính"
-                            android:textSize="18sp"
-                            android:textColor="#000000" />
+                            android:textColor="#D0D8D3"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:text="700.000 đ"
-                            android:textColor="#27AE60"
-                            android:textStyle="bold"
-                            android:textSize="18sp" />
+                            android:textColor="#00D68F"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
                     </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="20dp"
                         android:gravity="center"
-                        android:text="Vui lòng trả lời tất cả các câu hỏi để tiếp tục"
-                        android:textColor="#555555"
+                        android:text="Vui lòng trả lời tất cả câu hỏi để tiếp tục"
+                        android:textColor="#89958E"
                         android:textSize="12sp" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Bottom bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#111111"
-        android:padding="16dp"
+        android:background="#171D19"
+        android:elevation="12dp"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="14dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/labelTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tổng tiền"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:text="Tổng thanh toán"
+            android:textColor="#AAB5AE"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -294,37 +404,40 @@
             android:id="@+id/tvTotalBottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:text="700.000 đ"
-            android:textColor="#27AE60"
-            android:textSize="18sp"
+            android:textColor="#00D68F"
+            android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelTotal" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="5dp"
             android:src="@drawable/ic_arrow_up"
             app:layout_constraintBottom_toBottomOf="@id/tvTotalBottom"
             app:layout_constraintStart_toEndOf="@id/tvTotalBottom"
             app:layout_constraintTop_toTopOf="@id/tvTotalBottom"
-            app:tint="#27AE60" />
+            app:tint="#00D68F" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#27AE60"
-            android:paddingHorizontal="32dp"
+            android:layout_width="150dp"
+            android:layout_height="52dp"
             android:text="Tiếp tục"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:cornerRadius="4dp"
+            android:textColor="#071A12"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#00D68F"
+            app:cornerRadius="16dp"
+            app:iconGravity="textEnd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

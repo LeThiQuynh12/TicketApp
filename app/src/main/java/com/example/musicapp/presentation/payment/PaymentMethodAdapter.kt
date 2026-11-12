@@ -1,3 +1,4 @@
+
 package com.example.musicapp.presentation.payment
 
 import android.view.LayoutInflater
@@ -12,42 +13,88 @@ class PaymentMethodAdapter(
     private val onMethodSelected: (PaymentMethod) -> Unit
 ) : RecyclerView.Adapter<PaymentMethodAdapter.PaymentViewHolder>() {
 
-    private var selectedPosition = 0
+    // Mặc định chọn VietQR
+    private var selectedMethodId: String? = "vietqr"
 
-    inner class PaymentViewHolder(val binding: ItemPaymentMethodBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class PaymentViewHolder(
+        val binding: ItemPaymentMethodBinding
+    ) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PaymentViewHolder {
         val binding = ItemPaymentMethodBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return PaymentViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PaymentViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: PaymentViewHolder,
+        position: Int
+    ) {
         val method = methods[position]
+        val isSelected = method.id == selectedMethodId
+
         holder.binding.apply {
             tvPaymentName.text = method.name
             ivLogo.setImageResource(method.iconRes)
-            rbPayment.isChecked = position == selectedPosition
 
-            if (method.subIcons.isNotEmpty()) {
-                layoutSubIcons.visibility = View.VISIBLE
-            } else {
-                layoutSubIcons.visibility = View.GONE
-            }
+            rbPayment.isChecked = isSelected
+
+            ivSelected.visibility =
+                if (isSelected) View.VISIBLE else View.GONE
+
+            layoutSubIcons.visibility =
+                if (method.subIcons.isNotEmpty()) View.VISIBLE
+                else View.GONE
 
             root.setOnClickListener {
-                val oldPos = selectedPosition
-                selectedPosition = holder.adapterPosition
-                notifyItemChanged(oldPos)
-                notifyItemChanged(selectedPosition)
+                val oldPosition = methods.indexOfFirst {
+                    it.id == selectedMethodId
+                }
+
+                if (selectedMethodId == method.id) return@setOnClickListener
+
+                selectedMethodId = method.id
+
+                if (oldPosition != -1) {
+                    notifyItemChanged(oldPosition)
+                }
+
+                notifyItemChanged(position)
+
                 onMethodSelected(method)
             }
 
-            rbPayment.setOnClickListener { root.performClick() }
+            rbPayment.setOnClickListener {
+                root.performClick()
+            }
         }
     }
 
-    override fun getItemCount() = methods.size
+    override fun getItemCount(): Int = methods.size
+
+    fun setSelectedMethod(methodId: String?) {
+        val oldPosition = methods.indexOfFirst {
+            it.id == selectedMethodId
+        }
+
+        selectedMethodId = methodId
+
+        val newPosition = methods.indexOfFirst {
+            it.id == selectedMethodId
+        }
+
+        if (oldPosition != -1) {
+            notifyItemChanged(oldPosition)
+        }
+
+        if (newPosition != -1 && newPosition != oldPosition) {
+            notifyItemChanged(newPosition)
+        }
+    }
 }

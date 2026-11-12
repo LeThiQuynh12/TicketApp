@@ -34,9 +34,8 @@ class EventDetailFragment : Fragment() {
 
         bindEventDetail()
 
-        binding.btnBack.setOnClickListener {
-            Timber.tag("abcd").d("123 abcd")
-            findNavController().popBackStack(R.id.nav_home, false)
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
 
         binding.btnBuy.setOnClickListener {

@@ -3,154 +3,251 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000">
 
+    android:layout_height="match_parent"
+    android:background="#101010">
+
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        android:layout_marginTop="14dp"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#000000"
+        android:layout_height="60dp"
+        android:background="#101010"
+        android:elevation="2dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/albums"
-            android:src="@drawable/ic_back"
-            app:tint="#FFFFFF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Chọn vé"
+            android:textColor="#FFFFFF"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Header danh sách vé -->
+    <LinearLayout
+        android:id="@+id/ticketHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Chọn vé"
+            android:text="Chọn hạng vé của bạn"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="21sp"
             android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Lựa chọn vị trí phù hợp và tận hưởng sự kiện"
+            android:textColor="#999999"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="17dp"
+                android:background="#00E676" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:letterSpacing="0.08"
+                android:text="DANH SÁCH HẠNG VÉ"
+                android:textColor="#00E676"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Danh sách vé -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTickets"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/cvSelectedTickets"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingStart="16dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomSection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/ticketHeader"
         tools:listitem="@layout/item_ticket" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvSelectedTickets"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="#1C1C1E"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomSection"
-        tools:visibility="visible">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thông tin vé đã chọn"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvTicketDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="#A0A0A0"
-                android:textSize="13sp"
-                tools:text="2x A Lie - Lời Nói Dối\n1x The Truth - Sự Thật" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="8dp"
-                android:background="#3A3A3C" />
-
-            <TextView
-                android:id="@+id/tvTotalPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:textColor="@color/green"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:text="Tổng: 3.300.000 đ" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+    <!-- Bottom booking panel -->
     <LinearLayout
         android:id="@+id/bottomSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2C2C2E"
+        android:background="#1A1A1A"
+        android:elevation="12dp"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:paddingStart="18dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <LinearLayout
+        <!-- Thanh trang trí -->
+        <View
+            android:layout_width="36dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:background="#444444" />
+
+        <!-- Thông tin vé đã chọn -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvSelectedTickets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:visibility="gone"
+            app:cardBackgroundColor="#252525"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#383838"
+            app:strokeWidth="1dp"
+            tools:visibility="visible">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <!-- Tiêu đề và tổng tiền -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_ticket"
+                            app:tint="#00E676"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="9dp"
+                            android:text="Vé đã chọn"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 đ"
+                        android:textColor="#00E676"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="3.300.000 đ" />
+
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="#3A3A3A" />
+
+                <!-- Chi tiết vé -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đêm nhạc Minh Tuyết - Hoàng Hải"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
+                    android:letterSpacing="0.06"
+                    android:text="CHI TIẾT ĐẶT VÉ"
+                    android:textColor="#888888"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvTicketDetails"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="20:00 - 22:00, 28 Tháng 04, 2026"
-                    android:textColor="#A0A0A0"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="8dp"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="#CCCCCC"
+                    android:textSize="13sp"
+                    tools:text="2 x A Lie - Lời Nói Dối: 1.400.000 đ&#10;1 x The Truth - Sự Thật: 1.900.000 đ" />
+
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_arrow_up"
-                app:tint="#FFFFFF" />
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <Button
+        <!-- Nút tiếp tục -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSelectTicket"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/white"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="#353535"
+            android:enabled="false"
             android:text="Vui lòng chọn vé"
             android:textAllCaps="false"
-            android:textColor="#545456"
+            android:textColor="#888888"
             android:textSize="16sp"
-            app:cornerRadius="4dp" />
+            android:textStyle="bold"
+            app:cornerRadius="14dp"
+            app:elevation="0dp"
+            app:iconGravity="textStart"
+            app:rippleColor="#66FFFFFF" />
+
+        <!-- Ghi chú -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:text="Vui lòng kiểm tra thông tin trước khi tiếp tục"
+            android:textColor="#777777"
+            android:textSize="11sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

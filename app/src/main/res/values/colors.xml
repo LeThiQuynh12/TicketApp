@@ -10,4 +10,13 @@
     <color name="blue">#007ABF</color>
     <color name="red">#EE794A</color>
     <color name="green">#4CAF50</color>
+    <color name="ticket_green">#00D68F</color>
+    <color name="ticket_blue">#69B9FF</color>
+    <color name="ticket_red">#FF7777</color>
+    <color name="ticket_tab_selected_text">#101613</color>
+    <color name="ticket_tab_unselected_text">#A5B3AA</color>
+
+    <color name="search_chip_text">#C0CEC5</color>
+    <color name="search_chip_selected_text">#101613</color>
+
 </resources>

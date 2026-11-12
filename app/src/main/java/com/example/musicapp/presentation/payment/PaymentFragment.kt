@@ -25,23 +25,23 @@ class PaymentFragment : Fragment(R.layout.fragment_payment) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPaymentBinding.bind(view)
 
+        setupToolbar()
         setupPaymentMethods()
         displayOrderInfo()
+        setupListeners()
+    }
 
-        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
-
-        binding.btnPayment.setOnClickListener {
-            val selectedId = viewModel.selectedMethodId.value
-            findNavController().navigate(R.id.action_paymentFragment_to_vietQrPaymentFragment)
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 
     private fun displayOrderInfo() {
         binding.tvUserEmail.text = "lequynh4431r@gmail.com"
 
-        val total = args.totalAmount
         val formatter = DecimalFormat("#,###")
-//        binding.tvTotalBottom.text = "${formatter.format(total)} đ"
+        binding.tvTotalBottom.text = "${formatter.format(args.totalAmount)} đ"
     }
 
     private fun setupPaymentMethods() {
@@ -49,7 +49,7 @@ class PaymentFragment : Fragment(R.layout.fragment_payment) {
             PaymentMethod("vnpay", "VNPAY/Ứng dụng ngân hàng", R.drawable.logo_vnpay),
             PaymentMethod("vietqr", "VietQR", R.drawable.logo_vietqr),
             PaymentMethod("shopeepay", "ShopeePay", R.drawable.logo_shopeepay),
-            PaymentMethod("zalopay", "Zalopay", R.drawable.logo_zalopay),
+            PaymentMethod("zalopay", "ZaloPay", R.drawable.logo_zalopay)
         )
 
         methodAdapter = PaymentMethodAdapter(methods) { method ->
@@ -59,6 +59,44 @@ class PaymentFragment : Fragment(R.layout.fragment_payment) {
         binding.rvPaymentMethods.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = methodAdapter
+        }
+
+        if (viewModel.selectedMethodId.value == null) {
+            viewModel.selectMethod("vietqr")
+        }
+
+        viewModel.selectedMethodId.observe(viewLifecycleOwner) { selectedId ->
+            methodAdapter.setSelectedMethod(selectedId)
+        }
+    }
+
+    private fun setupListeners() {
+        binding.btnPayment.setOnClickListener {
+            when (viewModel.selectedMethodId.value) {
+                "vnpay" -> {
+                    findNavController().navigate(
+                        R.id.action_paymentFragment_to_vietQrPaymentFragment
+                    )
+                }
+
+                "vietqr" -> {
+                    findNavController().navigate(
+                        R.id.action_paymentFragment_to_vietQrPaymentFragment
+                    )
+                }
+
+                "shopeepay" -> {
+                    findNavController().navigate(
+                        R.id.action_paymentFragment_to_vietQrPaymentFragment
+                    )
+                }
+
+                "zalopay" -> {
+                    findNavController().navigate(
+                        R.id.action_paymentFragment_to_vietQrPaymentFragment
+                    )
+                }
+            }
         }
     }
 
