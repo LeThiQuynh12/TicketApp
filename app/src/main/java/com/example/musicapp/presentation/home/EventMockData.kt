@@ -11,7 +11,7 @@ object EventMockData {
                     id = "1",
                     imageUrl = "https://images.tkbcdn.com/2/608/332/ts/ds/04/ae/18/9ee650dff5237d8bcfdb2f92aa049e1c.jpg",
                     name = "Đêm nhạc Minh Tuyết - Hoàng Hải",
-                    price = "Từ 500.000 đ",
+                    price = "500.000 đ",
                     date = "28 Tháng 04, 2026",
                     description = "Mô tả chi tiết sự kiện âm nhạc...",
                     location = Location(
