@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:lineSpacingExtra="2dp"
-                android:text="Bạn muốn đi đâu \nhôm nay?"
+                android:text="Bạn muốn đi đâu&#10;hôm nay?"
                 android:textColor="#FFFFFF"
                 android:textSize="29sp"
                 android:textStyle="bold" />
@@ -85,16 +86,16 @@
                     android:textColorHint="#819087"
                     android:textSize="14sp" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/btnClearSearch"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:contentDescription="Xóa nội dung tìm kiếm"
-                    android:gravity="center"
-                    android:text="×"
-                    android:textColor="#A8B6AD"
-                    android:textSize="24sp"
-                    android:visibility="gone" />
+                    android:padding="8dp"
+                    android:src="@drawable/ic_close"
+                    android:visibility="gone"
+                    app:tint="#91A097" />
+
             </LinearLayout>
 
             <!-- Explore content -->
@@ -104,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Categories -->
+                <!-- Categories header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,8 +128,10 @@
                         android:text="Khám phá tất cả"
                         android:textColor="#00D68F"
                         android:textSize="11sp" />
+
                 </LinearLayout>
 
+                <!-- Categories -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -144,28 +147,38 @@
                             android:id="@+id/chipMusic"
                             style="@style/SearchCategoryChip"
                             android:background="@drawable/bg_search_chip_selected"
-                            android:text="♫  Âm nhạc"
+                            android:drawableStart="@drawable/ic_category_music"
+                            android:drawablePadding="7dp"
+                            android:text="Âm nhạc"
                             android:textColor="#101613" />
 
                         <TextView
                             android:id="@+id/chipSport"
                             style="@style/SearchCategoryChip"
-                            android:text="⚽  Thể thao" />
+                            android:drawableStart="@drawable/ic_category_sport"
+                            android:drawablePadding="7dp"
+                            android:text="Thể thao" />
 
                         <TextView
                             android:id="@+id/chipWorkshop"
                             style="@style/SearchCategoryChip"
-                            android:text="✦  Workshop" />
+                            android:drawableStart="@drawable/ic_category_workshop"
+                            android:drawablePadding="7dp"
+                            android:text="Workshop" />
 
                         <TextView
                             android:id="@+id/chipFestival"
                             style="@style/SearchCategoryChip"
-                            android:text="✧  Lễ hội" />
+                            android:drawableStart="@drawable/ic_category_festival"
+                            android:drawablePadding="7dp"
+                            android:text="Lễ hội" />
 
                         <TextView
                             android:id="@+id/chipOther"
                             style="@style/SearchCategoryChip"
-                            android:text="▣  Khác" />
+                            android:drawableStart="@drawable/ic_category_other"
+                            android:drawablePadding="7dp"
+                            android:text="Khác" />
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -179,7 +192,6 @@
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -220,7 +232,7 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
-                <!-- Recent searches -->
+                <!-- Recent searches header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -244,29 +256,37 @@
                         android:text="Xóa tất cả"
                         android:textColor="#00D68F"
                         android:textSize="12sp" />
+
                 </LinearLayout>
 
+                <!-- Recent searches -->
                 <LinearLayout
                     android:id="@+id/layoutRecentSearches"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/recentSearch1"
                         style="@style/SearchRecentItem"
-                        android:text="◷  Concert Hà Nội" />
+                        android:drawableStart="@drawable/ic_history"
+                        android:drawablePadding="12dp"
+                        android:text="Concert Hà Nội" />
 
                     <TextView
                         android:id="@+id/recentSearch2"
                         style="@style/SearchRecentItem"
-                        android:text="◷  Nhạc hội mùa hè" />
+                        android:drawableStart="@drawable/ic_history"
+                        android:drawablePadding="12dp"
+                        android:text="Nhạc hội mùa hè" />
 
                     <TextView
                         android:id="@+id/recentSearch3"
                         style="@style/SearchRecentItem"
-                        android:text="◷  Sự kiện cuối tuần" />
+                        android:drawableStart="@drawable/ic_history"
+                        android:drawablePadding="12dp"
+                        android:text="Sự kiện cuối tuần" />
 
                 </LinearLayout>
 
@@ -292,7 +312,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="9dp"
-                        android:text="Trải nghiệm những\\nkhoảnh khắc đáng nhớ"
+                        android:text="Trải nghiệm những&#10;khoảnh khắc đáng nhớ"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -335,6 +355,7 @@
                     android:nestedScrollingEnabled="false"
                     android:overScrollMode="never" />
 
+                <!-- Empty search result -->
                 <LinearLayout
                     android:id="@+id/layoutNoSearchResult"
                     android:layout_width="match_parent"

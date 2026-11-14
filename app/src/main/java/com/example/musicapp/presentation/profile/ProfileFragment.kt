@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.musicapp.R
 import com.example.musicapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -36,72 +37,41 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setupSettingItems() {
-        setupItem(
-            binding.itemEditProfile,
-            "👤",
-            "Thông tin cá nhân",
-            "Cập nhật tên, email và số điện thoại"
-        )
+        setupItem(binding.itemEditProfile, R.drawable.ic_profile_user,
+            "Thông tin cá nhân", "Cập nhật tên, email và số điện thoại")
 
-        setupItem(
-            binding.itemChangePassword,
-            "🔒",
-            "Đổi mật khẩu",
-            "Thay đổi mật khẩu tài khoản"
-        )
+        setupItem(binding.itemChangePassword, R.drawable.ic_profile_lock,
+            "Đổi mật khẩu", "Thay đổi mật khẩu tài khoản")
 
-        setupItem(
-            binding.itemPayment,
-            "💳",
-            "Phương thức thanh toán",
-            "Quản lý phương thức thanh toán"
-        )
+        setupItem(binding.itemPayment, R.drawable.ic_profile_card,
+            "Phương thức thanh toán", "Quản lý phương thức thanh toán")
 
-        setupItem(
-            binding.itemNotification,
-            "🔔",
-            "Thông báo",
-            "Tùy chỉnh thông báo sự kiện"
-        )
+        setupItem(binding.itemNotification, R.drawable.ic_profile_bell,
+            "Thông báo", "Tùy chỉnh thông báo sự kiện")
 
-        setupItem(
-            binding.itemLanguage,
-            "🌐",
-            "Ngôn ngữ",
-            "Tiếng Việt"
-        )
+        setupItem(binding.itemLanguage, R.drawable.ic_profile_language,
+            "Ngôn ngữ", "Tiếng Việt")
 
-        setupItem(
-            binding.itemPrivacy,
-            "🛡",
-            "Quyền riêng tư",
-            "Quản lý dữ liệu và bảo mật"
-        )
+        setupItem(binding.itemPrivacy, R.drawable.ic_profile_shield,
+            "Quyền riêng tư", "Quản lý dữ liệu và bảo mật")
 
-        setupItem(
-            binding.itemHelp,
-            "❓",
-            "Trung tâm trợ giúp",
-            "Câu hỏi thường gặp và hỗ trợ"
-        )
+        setupItem(binding.itemHelp, R.drawable.ic_profile_help,
+            "Trung tâm trợ giúp", "Câu hỏi thường gặp và hỗ trợ")
 
-        setupItem(
-            binding.itemAbout,
-            "ℹ",
-            "Về TicketApp",
-            "Thông tin ứng dụng và phiên bản"
-        )
+        setupItem(binding.itemAbout, R.drawable.ic_profile_info,
+            "Về TicketApp", "Thông tin ứng dụng và phiên bản")
     }
 
     private fun setupItem(
         item: com.example.musicapp.databinding.ItemProfileSettingBinding,
-        icon: String,
+        iconRes: Int,
         title: String,
         subtitle: String
     ) {
-        item.tvItemIcon.text = icon
+        item.ivItemIcon.setImageResource(iconRes)
         item.tvItemTitle.text = title
         item.tvItemSubtitle.text = subtitle
+
         item.root.setOnClickListener {
             Toast.makeText(
                 requireContext(),

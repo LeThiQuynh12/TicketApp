@@ -13,11 +13,10 @@
         <item name="android:fontFamily">sans</item>
     </style>
 
-
     <style name="SearchCategoryChip">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">40dp</item>
-        <item name="android:layout_marginEnd">9dp</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingStart">15dp</item>
         <item name="android:paddingEnd">15dp</item>
@@ -30,11 +29,10 @@
     <style name="SearchKeywordChip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">36dp</item>
-        <item name="android:layout_marginEnd">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginEnd">9dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingStart">13dp</item>
-        <item name="android:paddingEnd">13dp</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
         <item name="android:textColor">#B8C7BD</item>
         <item name="android:textSize">12sp</item>
         <item name="android:background">@drawable/bg_search_chip</item>
@@ -42,7 +40,7 @@
 
     <style name="SearchRecentItem">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">42dp</item>
+        <item name="android:layout_height">46dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">#B8C7BD</item>
         <item name="android:textSize">13sp</item>

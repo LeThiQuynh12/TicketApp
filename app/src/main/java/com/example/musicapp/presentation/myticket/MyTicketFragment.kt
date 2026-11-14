@@ -22,7 +22,6 @@ class MyTicketFragment : Fragment() {
 
     private var selectedStatus = TicketStatus.UPCOMING
 
-    // Dữ liệu mẫu - sau này thay bằng dữ liệu từ API/Database
     private val allTickets = listOf(
         MyTicket(
             id = "1",
